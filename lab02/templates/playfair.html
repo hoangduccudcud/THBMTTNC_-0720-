@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Playfair Cipher - Cipher Demo{% endblock %}
+{% block content %}
+    <h1 class="text-center mt-4">Playfair Cipher</h1>
+    <table class="table">
+        <tr>
+            <td style="font-weight: bold; color: blue">ENCRYPTION</td>
+        </tr>
+        <tr>
+            <td>
+                <form method="POST" action="/playfair_encrypt">
+                    <div class="mb-3">
+                        <label class="form-label">Plain Text:</label>
+                        <input type="text" class="form-control" name="inputText" placeholder="Enter text (letters only)" required autofocus/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Key:</label>
+                        <input type="text" class="form-control" name="key" placeholder="Enter key (letters only)" required/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Encrypt</button>
+                </form>
+                {% if playfair_encrypted_text %}
+                    <p class="mt-3">Encrypted Text: {{ playfair_encrypted_text }}</p>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold; color: blue">DECRYPTION</td>
+        </tr>
+        <tr>
+            <td>
+                <form method="POST" action="/playfair_decrypt">
+                    <div class="mb-3">
+                        <label class="form-label">Cipher Text:</label>
+                        <input type="text" class="form-control" name="inputText" placeholder="Enter encrypted text" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Key:</label>
+                        <input type="text" class="form-control" name="key" placeholder="Enter key (letters only)" required/>
+                    </div>
+                    <button type="submit" class="btn btn-success">Decrypt</button>
+                </form>
+                {% if playfair_decrypted_text %}
+                    <p class="mt-3">Decrypted Text: {{ playfair_decrypted_text }}</p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+{% endblock %}
