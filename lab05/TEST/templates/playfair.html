@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playfair Cipher</title>
+</head>
+<body>
+    <h1>Playfair Cipher</h1>
+    <form action="/playfair/encrypt" method="POST">
+        <label for="plainText">Plain Text:</label>
+        <input type="text" id="plainText" name="plainText" required><br><br>
+
+        <label for="key">Key:</label>
+        <input type="text" id="key" name="key" required><br><br>
+
+        <button type="submit">Encrypt</button>
+    </form>
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>
