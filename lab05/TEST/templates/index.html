@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Algorithms</title>
+    <script>
+        function showForm(formId) {
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        function hideForm(formId) {
+            document.getElementById(formId).style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <!-- Chèn Logo HUTECH -->
+    <div style="text-align: center;">
+        <img src="{{ url_for('static', filename='HUTECH.png') }}" alt="HUTECH Logo" width="200">
+    </div>
+
+    <h1>Choose an Encryption Algorithm</h1>
+    
+    <!-- Thêm thông tin cá nhân vào đây -->
+    <p><strong>Full Name:</strong> Lê Thanh Hoàng Đức</p>
+    <p><strong>MSSV:</strong> 2280600720</p>
+    
+    <ul>
+        <li><a href="javascript:void(0)" onclick="showForm('caesarForm')">CAESAR CIPHER</a></li>
+        <li><a href="javascript:void(0)" onclick="showForm('railfenceForm')">RAILFENCE CIPHER</a></li>
+        <li><a href="javascript:void(0)" onclick="showForm('playfairForm')">PLAYFAIR CIPHER</a></li>
+        <li><a href="javascript:void(0)" onclick="showForm('vigenereForm')">VIGENERE CIPHER</a></li>
+    </ul>
+
+    <!-- Caesar Cipher Form Popup -->
+    <div id="caesarForm" style="display:none;">
+        <h2>Caesar Cipher</h2>
+        <form action="/caesar/encrypt" method="POST">
+            <label for="plainText">Plain Text:</label>
+            <input type="text" id="plainText" name="plainText" required><br><br>
+
+            <label for="key">Key:</label>
+            <input type="number" id="key" name="key" required><br><br>
+
+            <button type="submit">Encrypt</button>
+        </form>
+        <button onclick="hideForm('caesarForm')">Close</button>
+    </div>
+
+    <!-- Railfence Cipher Form Popup -->
+    <div id="railfenceForm" style="display:none;">
+        <h2>Railfence Cipher</h2>
+        <form action="/railfence/encrypt" method="POST">
+            <label for="plainText">Plain Text:</label>
+            <input type="text" id="plainText" name="plainText" required><br><br>
+
+            <label for="key">Key:</label>
+            <input type="number" id="key" name="key" required><br><br>
+
+            <button type="submit">Encrypt</button>
+        </form>
+        <button onclick="hideForm('railfenceForm')">Close</button>
+    </div>
+
+    <!-- Playfair Cipher Form Popup -->
+    <div id="playfairForm" style="display:none;">
+        <h2>Playfair Cipher</h2>
+        <form action="/playfair/encrypt" method="POST">
+            <label for="plainText">Plain Text:</label>
+            <input type="text" id="plainText" name="plainText" required><br><br>
+
+            <label for="key">Key:</label>
+            <input type="text" id="key" name="key" required><br><br>
+
+            <button type="submit">Encrypt</button>
+        </form>
+        <button onclick="hideForm('playfairForm')">Close</button>
+    </div>
+
+    <!-- Vigenere Cipher Form Popup -->
+    <div id="vigenereForm" style="display:none;">
+        <h2>Vigenere Cipher</h2>
+        <form action="/vigenere/encrypt" method="POST">
+            <label for="plainText">Plain Text:</label>
+            <input type="text" id="plainText" name="plainText" required><br><br>
+
+            <label for="key">Key:</label>
+            <input type="text" id="key" name="key" required><br><br>
+
+            <button type="submit">Encrypt</button>
+        </form>
+        <button onclick="hideForm('vigenereForm')">Close</button>
+    </div>
+
+</body>
+</html>
